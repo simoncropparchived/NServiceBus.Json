@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using NServiceBus;
 using NServiceBus.MessageInterfaces;
 using NServiceBus.Serialization;
+using JsonSerializer = System.Text.Json.Serialization.JsonSerializer;
 
 class JsonMessageSerializer :
     IMessageSerializer
@@ -32,15 +33,8 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-        try
-        {
-            var bytes = System.Text.Json.Serialization.JsonSerializer.ToBytes(message, serializerOptions);
+            var bytes = JsonSerializer.ToBytes(message, serializerOptions);
             stream.Write(bytes, 0, bytes.Length);
-        }
-        catch (TypeAccessException exception)
-        {
-            throw new Exception($"Types need to be public. Type: {message.GetType().FullName}", exception);
-        }
     }
 
     public object[] Deserialize(Stream stream, IList<Type> messageTypes)
@@ -52,26 +46,9 @@ class JsonMessageSerializer :
 
         var buffer = ((MemoryStream)stream).ToArray();
         var rootTypes = FindRootTypes(messageTypes);
-        return rootTypes.Select(rootType =>
-            {
-                var messageType = GetMappedType(rootType);
-                try
-                {
-                    return System.Text.Json.Serialization.JsonSerializer.Parse(buffer, rootType, serializerOptions);
-                }
-                catch (TypeAccessException exception)
-                {
-                    throw new Exception($"Types need to be public. Type: {messageType.FullName}", exception);
-                }
-            })
+        return rootTypes.Select(rootType => JsonSerializer.Parse(buffer, rootType, serializerOptions))
             .ToArray();
     }
-
-    Type GetMappedType(Type serializedType)
-    {
-        return messageMapper.GetMappedTypeFor(serializedType) ?? serializedType;
-    }
-
 
     static IEnumerable<Type> FindRootTypes(IEnumerable<Type> messageTypesToDeserialize)
     {

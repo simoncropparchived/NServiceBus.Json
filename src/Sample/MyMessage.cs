@@ -1,7 +1,7 @@
 ﻿using System;
 using NServiceBus;
 
-public class MyMessage : IMessage
+ class MyMessage : IMessage
 {
     public DateTime DateSend { get; set; }
 }
