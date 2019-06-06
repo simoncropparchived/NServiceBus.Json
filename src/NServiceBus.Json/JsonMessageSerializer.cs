@@ -4,21 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Text.Json.Serialization;
 using NServiceBus;
-using NServiceBus.MessageInterfaces;
 using NServiceBus.Serialization;
 using JsonSerializer = System.Text.Json.Serialization.JsonSerializer;
 
 class JsonMessageSerializer :
     IMessageSerializer
 {
-    IMessageMapper messageMapper;
-
     public JsonMessageSerializer(
-        IMessageMapper messageMapper,
         JsonSerializerOptions serializerOptions,
         string contentType)
     {
-        this.messageMapper = messageMapper;
         this.serializerOptions = serializerOptions;
 
         if (contentType == null)
@@ -33,8 +28,8 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-            var bytes = JsonSerializer.ToBytes(message, serializerOptions);
-            stream.Write(bytes, 0, bytes.Length);
+        var bytes = JsonSerializer.ToBytes(message, serializerOptions);
+        stream.Write(bytes, 0, bytes.Length);
     }
 
     public object[] Deserialize(Stream stream, IList<Type> messageTypes)

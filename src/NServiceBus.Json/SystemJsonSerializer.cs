@@ -21,7 +21,7 @@ namespace NServiceBus.Json
             {
                 var options = settings.GetOptions();
                 var contentTypeKey = settings.GetContentTypeKey();
-                return new JsonMessageSerializer(mapper, options, contentTypeKey);
+                return new JsonMessageSerializer(options, contentTypeKey);
             };
         }
     }
