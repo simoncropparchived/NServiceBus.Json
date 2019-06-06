@@ -8,7 +8,8 @@ namespace NServiceBus.Json
     /// <summary>
     /// Defines the capabilities of the System.Text.Json serializer
     /// </summary>
-    public class SystemJsonSerializer : SerializationDefinition
+    public class SystemJsonSerializer :
+        SerializationDefinition
     {
         /// <summary>
         /// <see cref="SerializationDefinition.Configure"/>

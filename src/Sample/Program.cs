@@ -16,7 +16,7 @@ class Program
             DateSend = DateTime.Now,
         };
         await endpoint.SendLocal(message);
-        Console.WriteLine("\r\nPress any key to stop program\r\n");
+        Console.WriteLine("Press any key to stop program");
         Console.Read();
         await endpoint.Stop();
     }

@@ -7,9 +7,9 @@ using NServiceBus.Json;
 namespace NServiceBus
 {
     /// <summary>
-    /// Extensions for <see cref="SerializationExtensions{T}"/> to manipulate how messages are serialized via Utf8Json.
+    /// Extensions for <see cref="SerializationExtensions{T}"/> to manipulate how messages are serialized via System.Text.Json.
     /// </summary>
-    public static class JsonConfigurationExtensions
+    public static class SystemJsonConfigurationExtensions
     {
         /// <summary>
         /// Configures the <see cref="JsonSerializerOptions"/> to use.
