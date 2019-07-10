@@ -6,7 +6,7 @@
     <GenerateDocumentationFile Condition="$(Configuration)=='Release'">true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="7.1.9" />
+    <PackageReference Include="NServiceBus" Version="7.1.10" />
     <PackageReference Include="System.Text.Json" Version="4.6.0-preview6.19259.10" />
     <PackageReference Condition="$(Configuration)=='Release'" Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19270-01" PrivateAssets="All" />
   </ItemGroup>
