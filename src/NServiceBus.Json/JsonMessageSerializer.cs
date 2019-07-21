@@ -28,7 +28,7 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-        var bytes = JsonSerializer.ToBytes(message, serializerOptions);
+        var bytes = JsonSerializer.ToUtf8Bytes(message, serializerOptions);
         stream.Write(bytes, 0, bytes.Length);
     }
 
