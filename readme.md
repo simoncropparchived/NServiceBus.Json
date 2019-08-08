@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/NServiceBusExtensions/NServiceBus.Json/master/src/icon.png" height="25px"> Add support for [NServiceBus](https://particular.net/NServiceBus) message serialization via [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json)
+<img src="/src/icon.png" height="25px"> Add support for [NServiceBus](https://particular.net/NServiceBus) message serialization via [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json)
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -25,11 +25,11 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 <a href="#" id="endofbacking"></a>
 
-## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Json.svg)](https://www.nuget.org/packages/NServiceBus.Json/)
+## NuGet package
 
-https://nuget.org/packages/NServiceBus.Json/
+https://nuget.org/packages/NServiceBus.Json/ [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Json.svg)](https://www.nuget.org/packages/NServiceBus.Json/)
 
 
 ## Icon
 
-<a href="http://thenounproject.com/term/helmet/937034/">Helmet</a> designed by <a href="https://thenounproject.com/joaofilipe/">Joao Filipe</a> from The Noun Project
+[Helmet](https://thenounproject.com/term/helmet/937034/) designed by [Joao Filipe](https://thenounproject.com/joaofilipe/) from [The Noun Project](https://thenounproject.com).
