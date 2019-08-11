@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using NServiceBus;
 using NServiceBus.Serialization;
-using JsonSerializer = System.Text.Json.Serialization.JsonSerializer;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 class JsonMessageSerializer :
     IMessageSerializer
@@ -28,7 +28,7 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-        var bytes = JsonSerializer.ToUtf8Bytes(message, serializerOptions);
+        var bytes = JsonSerializer.SerializeToUtf8Bytes(message, serializerOptions);
         stream.Write(bytes, 0, bytes.Length);
     }
 
@@ -41,7 +41,7 @@ class JsonMessageSerializer :
 
         var buffer = ((MemoryStream)stream).ToArray();
         var rootTypes = FindRootTypes(messageTypes);
-        return rootTypes.Select(rootType => JsonSerializer.Parse(buffer, rootType, serializerOptions))
+        return rootTypes.Select(rootType => JsonSerializer.Deserialize(buffer, rootType, serializerOptions))
             .ToArray();
     }
 

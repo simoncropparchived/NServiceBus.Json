@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
 using NServiceBus.Configuration.AdvancedExtensibility;
 using NServiceBus.Serialization;
 using NServiceBus.Settings;
