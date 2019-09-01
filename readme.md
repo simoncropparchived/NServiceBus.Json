@@ -27,7 +27,7 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 ## NuGet package
 
-https://nuget.org/packages/NServiceBus.Json/ [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Json.svg)](https://www.nuget.org/packages/NServiceBus.Json/)
+https://nuget.org/packages/NServiceBus.Json/ [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Json.svg)](https://www.nuget.org/packages/NServiceBus.Json/)
 
 
 ## Icon
