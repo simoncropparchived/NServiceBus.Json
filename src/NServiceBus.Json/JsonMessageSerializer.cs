@@ -12,9 +12,13 @@ class JsonMessageSerializer :
 {
     public JsonMessageSerializer(
         JsonSerializerOptions serializerOptions,
+        JsonWriterOptions writerOptions,
+        JsonReaderOptions readerOptions,
         string contentType)
     {
         this.serializerOptions = serializerOptions;
+        this.writerOptions = writerOptions;
+        this.readerOptions = readerOptions;
 
         if (contentType == null)
         {
@@ -28,8 +32,10 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-        var bytes = JsonSerializer.SerializeToUtf8Bytes(message, serializerOptions);
-        stream.Write(bytes, 0, bytes.Length);
+        using (var writer = new Utf8JsonWriter(stream,writerOptions))
+        {
+            JsonSerializer.Serialize(writer, message, serializerOptions);
+        }
     }
 
     public object[] Deserialize(Stream stream, IList<Type> messageTypes)
@@ -38,11 +44,22 @@ class JsonMessageSerializer :
         {
             throw new Exception("NServiceBus.Json requires message types to be specified");
         }
-
+        
         var buffer = ((MemoryStream)stream).ToArray();
+        if (messageTypes.Count == 1)
+        {
+            return new[] {Deserialize(buffer, messageTypes[0])};
+        }
+
         var rootTypes = FindRootTypes(messageTypes);
-        return rootTypes.Select(rootType => JsonSerializer.Deserialize(buffer, rootType, serializerOptions))
+        return rootTypes.Select(rootType => Deserialize(buffer, rootType))
             .ToArray();
+    }
+
+    object Deserialize(byte[] buffer, Type type)
+    {
+        var reader = new Utf8JsonReader(buffer, readerOptions);
+        return JsonSerializer.Deserialize(ref reader, type, serializerOptions);
     }
 
     static IEnumerable<Type> FindRootTypes(IEnumerable<Type> messageTypesToDeserialize)
@@ -68,4 +85,6 @@ class JsonMessageSerializer :
     public string ContentType { get; }
 
     JsonSerializerOptions serializerOptions;
+    JsonWriterOptions writerOptions;
+    JsonReaderOptions readerOptions;
 }

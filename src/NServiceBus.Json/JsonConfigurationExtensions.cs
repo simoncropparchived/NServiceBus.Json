@@ -12,6 +12,32 @@ namespace NServiceBus
     public static class SystemJsonConfigurationExtensions
     {
         /// <summary>
+        /// Configures the <see cref="JsonReaderOptions"/> to use.
+        /// </summary>
+        /// <param name="config">The <see cref="SerializationExtensions{T}"/> instance.</param>
+        /// <param name="options">The <see cref="JsonReaderOptions"/> to use.</param>
+        public static void ReaderOptions(this SerializationExtensions<SystemJsonSerializer> config, JsonReaderOptions options)
+        {
+            Guard.AgainstNull(config, nameof(config));
+            Guard.AgainstNull(options, nameof(options));
+            var settings = config.GetSettings();
+            settings.Set(options);
+        }
+
+        /// <summary>
+        /// Configures the <see cref="JsonWriterOptions"/> to use.
+        /// </summary>
+        /// <param name="config">The <see cref="SerializationExtensions{T}"/> instance.</param>
+        /// <param name="options">The <see cref="JsonWriterOptions"/> to use.</param>
+        public static void WriterOptions(this SerializationExtensions<SystemJsonSerializer> config, JsonWriterOptions options)
+        {
+            Guard.AgainstNull(config, nameof(config));
+            Guard.AgainstNull(options, nameof(options));
+            var settings = config.GetSettings();
+            settings.Set(options);
+        }
+
+        /// <summary>
         /// Configures the <see cref="JsonSerializerOptions"/> to use.
         /// </summary>
         /// <param name="config">The <see cref="SerializationExtensions{T}"/> instance.</param>
@@ -27,6 +53,16 @@ namespace NServiceBus
         internal static JsonSerializerOptions GetOptions(this ReadOnlySettings settings)
         {
             return settings.GetOrDefault<JsonSerializerOptions>();
+        }
+
+        internal static JsonReaderOptions GetReaderOptions(this ReadOnlySettings settings)
+        {
+            return settings.GetOrDefault<JsonReaderOptions>();
+        }
+
+        internal static JsonWriterOptions GetWriterOptions(this ReadOnlySettings settings)
+        {
+            return settings.GetOrDefault<JsonWriterOptions>();
         }
 
         /// <summary>

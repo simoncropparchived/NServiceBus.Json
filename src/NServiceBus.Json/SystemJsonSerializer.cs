@@ -20,8 +20,10 @@ namespace NServiceBus.Json
             return mapper =>
             {
                 var options = settings.GetOptions();
+                var readerOptions = settings.GetReaderOptions();
+                var writerOptions = settings.GetWriterOptions();
                 var contentTypeKey = settings.GetContentTypeKey();
-                return new JsonMessageSerializer(options, contentTypeKey);
+                return new JsonMessageSerializer(options, writerOptions, readerOptions, contentTypeKey);
             };
         }
     }
