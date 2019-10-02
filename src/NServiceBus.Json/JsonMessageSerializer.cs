@@ -32,10 +32,8 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-        using (var writer = new Utf8JsonWriter(stream,writerOptions))
-        {
-            JsonSerializer.Serialize(writer, message, serializerOptions);
-        }
+        using var writer = new Utf8JsonWriter(stream,writerOptions);
+        JsonSerializer.Serialize(writer, message, serializerOptions);
     }
 
     public object[] Deserialize(Stream stream, IList<Type> messageTypes)
