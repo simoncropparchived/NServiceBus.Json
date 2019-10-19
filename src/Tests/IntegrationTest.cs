@@ -17,21 +17,19 @@ public class IntegrationTest :
         configuration.UsePersistence<LearningPersistence>();
         configuration.UseSerialization<SystemJsonSerializer>();
         configuration.PurgeOnStartup(true);
-        using (var resetEvent = new ManualResetEvent(false))
-        {
-            configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
-        
-            var endpoint = await Endpoint.Start(configuration);
-            await endpoint.SendLocal(new MyMessage {Property = "Value"});
+        using var resetEvent = new ManualResetEvent(false);
+        configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
 
-            if (!resetEvent.WaitOne(TimeSpan.FromSeconds(10)))
-            {
-                throw new Exception("No Set received.");
-            }
+        var endpoint = await Endpoint.Start(configuration);
+        await endpoint.SendLocal(new MyMessage {Property = "Value"});
+
+        if (!resetEvent.WaitOne(TimeSpan.FromSeconds(10)))
+        {
+            throw new Exception("No Set received.");
         }
     }
 
-    public IntegrationTest(ITestOutputHelper output) : 
+    public IntegrationTest(ITestOutputHelper output) :
         base(output)
     {
     }

@@ -7,10 +7,12 @@ class Program
 {
     public static async Task Main()
     {
-        var configuration = new EndpointConfiguration("JsonSerializerSample");
-        configuration.UseSerialization<SystemJsonSerializer>();
-        configuration.UseTransport<LearningTransport>();
-        var endpoint = await Endpoint.Start(configuration);
+        var endpointConfiguration = new EndpointConfiguration("JsonSerializerSample");
+        #region usage
+        endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+        #endregion
+        endpointConfiguration.UseTransport<LearningTransport>();
+        var endpoint = await Endpoint.Start(endpointConfiguration);
         var message = new MyMessage
         {
             DateSend = DateTime.Now,
