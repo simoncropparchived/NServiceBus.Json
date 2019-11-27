@@ -3,11 +3,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Json;
+using VerifyXunit;
 using Xunit;
 using Xunit.Abstractions;
 
 public class IntegrationTest :
-    XunitApprovalBase
+    VerifyBase
 {
     [Fact]
     public async Task Run()
