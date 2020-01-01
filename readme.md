@@ -19,9 +19,7 @@ Add support for [NServiceBus](https://particular.net/NServiceBus) message serial
   * [Community backed](#community-backed)
     * [Sponsors](#sponsors)
     * [Patrons](#patrons)
-  * [Usage](#usage)
-<!-- endtoc -->
-
+  * [Usage](#usage)<!-- endtoc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -30,7 +28,7 @@ Add support for [NServiceBus](https://particular.net/NServiceBus) message serial
 
 ## Community backed
 
-**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/order/6976) to use any of these libraries. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/blob/master/readme.md#licensingpatron-faq)**
+**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/order/6976) to use any of these libraries. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
 
 
 ### Sponsors
@@ -56,7 +54,7 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 ```cs
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 ```
-<sup>[snippet source](/src/Sample/Program.cs#L11-L13) / [anchor](#snippet-usage)</sup>
+<sup><a href='/src/Sample/Program.cs#L11-L13' title='File snippet `usage` was extracted from'>snippet source</a> | <a href='#snippet-usage' title='Navigate to start of snippet `usage`'>anchor</a></sup>
 <!-- endsnippet -->
 
 

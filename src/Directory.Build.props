@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageTags>NServiceBus, Json, System.Text.Json</PackageTags>
     <Description>Add support for NServiceBus message serialization via System.Text.Json.</Description>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileFullPath)\..\..\license.txt"
+          Pack="true"
+          PackagePath="license.txt"/>
+  </ItemGroup>
 </Project>
