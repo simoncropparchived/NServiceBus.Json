@@ -14,11 +14,13 @@ class JsonMessageSerializer :
         JsonSerializerOptions serializerOptions,
         JsonWriterOptions writerOptions,
         JsonReaderOptions readerOptions,
-        string contentType)
+        string contentType,
+        bool skipBom)
     {
         this.serializerOptions = serializerOptions;
         this.writerOptions = writerOptions;
         this.readerOptions = readerOptions;
+        this.skipBom = skipBom;
 
         if (contentType == null)
         {
@@ -42,8 +44,20 @@ class JsonMessageSerializer :
         {
             throw new Exception("NServiceBus.Json requires message types to be specified");
         }
-        
+
         var buffer = ((MemoryStream)stream).ToArray();
+        if (skipBom)
+        {
+            ReadOnlySpan<byte> jsonReadOnlySpan = buffer;
+
+            if (jsonReadOnlySpan.StartsWith(Utf8Bom))
+            {
+                jsonReadOnlySpan = jsonReadOnlySpan.Slice(Utf8Bom.Length);
+            }
+
+            buffer = jsonReadOnlySpan.ToArray();
+        }
+
         if (messageTypes.Count == 1)
         {
             return new[] {Deserialize(buffer, messageTypes[0])};
@@ -85,4 +99,6 @@ class JsonMessageSerializer :
     JsonSerializerOptions serializerOptions;
     JsonWriterOptions writerOptions;
     JsonReaderOptions readerOptions;
+    readonly bool skipBom;
+    static ReadOnlySpan<byte> Utf8Bom => new byte[] { 0xEF, 0xBB, 0xBF };
 }

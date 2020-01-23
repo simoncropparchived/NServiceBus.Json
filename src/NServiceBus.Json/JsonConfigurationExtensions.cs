@@ -86,5 +86,25 @@ namespace NServiceBus
         {
             return settings.GetOrDefault<string>("NServiceBus.SystemJson.ContentTypeKey");
         }
+
+        /// <summary>
+        /// Configures to skip the Byte Order Marker (BOM) before deserialization.
+        /// </summary>
+        /// <remarks>
+        /// Defaults to <see cref="ContentTypes.Json"/>.
+        /// This setting is required when this serializer needs to co-exist with other json serializers.
+        /// </remarks>
+        /// <param name="config">The <see cref="SerializationExtensions{T}"/> instance.</param>
+        /// <param name="skipBom">Skip Byte Order Marker (BOM) from input</param>
+        public static void SkipBom(this SerializationExtensions<SystemJsonSerializer> config, bool skipBom)
+        {
+            var settings = config.GetSettings();
+            settings.Set("NServiceBus.SystemJson.SkipBom", skipBom);
+        }
+
+        internal static bool GetSkipBom(this ReadOnlySettings settings)
+        {
+            return settings.GetOrDefault<bool>("NServiceBus.SystemJson.SkipBom");
+        }
     }
 }

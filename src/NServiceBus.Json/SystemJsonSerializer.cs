@@ -23,7 +23,8 @@ namespace NServiceBus.Json
                 var readerOptions = settings.GetReaderOptions();
                 var writerOptions = settings.GetWriterOptions();
                 var contentTypeKey = settings.GetContentTypeKey();
-                return new JsonMessageSerializer(options, writerOptions, readerOptions, contentTypeKey);
+                var skipBom = settings.GetSkipBom();
+                return new JsonMessageSerializer(options, writerOptions, readerOptions, contentTypeKey, skipBom);
             };
         }
     }
