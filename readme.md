@@ -19,7 +19,9 @@ Add support for [NServiceBus](https://particular.net/NServiceBus) message serial
   * [Community backed](#community-backed)
     * [Sponsors](#sponsors)
     * [Patrons](#patrons)
-  * [Usage](#usage)<!-- endtoc -->
+  * [Support via TideLift](#support-via-tidelift)
+  * [Usage](#usage)
+  * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -28,7 +30,7 @@ Add support for [NServiceBus](https://particular.net/NServiceBus) message serial
 
 ## Community backed
 
-**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/contribute/patron-6976) to use NServiceBusExtensions. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
+**It is expected that all developers either [become a Patron](https://opencollective.com/nservicebusextensions/contribute/patron-6976) or have a [Tidelift Subscription](#support-via-tidelift) to use NServiceBusExtensions. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
 
 
 ### Sponsors
@@ -47,6 +49,11 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 <!--- EndOpenCollectiveBackers -->
 
 
+## Support via TideLift
+
+Support is available via a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-nservicebus.json?utm_source=nuget-nservicebus.json&utm_medium=referral&utm_campaign=enterprise).
+
+
 ## Usage
 
 <!-- snippet: usage -->
@@ -58,9 +65,9 @@ endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 <!-- endsnippet -->
 
 
-## Release Notes
+## Security contact information
 
-See [closed milestones](../../milestones?state=closed).
+To report a security vulnerability, use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
 
 
 ## Icon
