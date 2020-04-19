@@ -2,6 +2,7 @@
 <Project>
   <PropertyGroup>
     <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageTags>NServiceBus, Json, System.Text.Json</PackageTags>
     <Description>Add support for NServiceBus message serialization via System.Text.Json.</Description>
   </PropertyGroup>
