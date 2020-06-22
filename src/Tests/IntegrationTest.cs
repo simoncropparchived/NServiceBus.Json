@@ -3,12 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Json;
-using VerifyXunit;
 using Xunit;
-using Xunit.Abstractions;
 
-public class IntegrationTest :
-    VerifyBase
+public class IntegrationTest
 {
     [Fact]
     public async Task Run()
@@ -28,11 +25,6 @@ public class IntegrationTest :
         {
             throw new Exception("No Set received.");
         }
-    }
-
-    public IntegrationTest(ITestOutputHelper output) :
-        base(output)
-    {
     }
 }
 
