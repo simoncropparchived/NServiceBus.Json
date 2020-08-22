@@ -21,7 +21,7 @@ Add support for [NServiceBus](https://particular.net/NServiceBus) message serial
     * [Patrons](#patrons)
   * [Support via TideLift](#support-via-tidelift)
   * [Usage](#usage)
-  * [Security contact information](#security-contact-information)<!-- endtoc -->
+  * [Security contact information](#security-contact-information)<!-- endToc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -57,12 +57,12 @@ Support is available via a [Tidelift Subscription](https://tidelift.com/subscrip
 ## Usage
 
 <!-- snippet: usage -->
-<a id='snippet-usage'/></a>
+<a id='snippet-usage'></a>
 ```cs
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 ```
 <sup><a href='/src/Sample/Program.cs#L11-L13' title='File snippet `usage` was extracted from'>snippet source</a> | <a href='#snippet-usage' title='Navigate to start of snippet `usage`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ## Security contact information
