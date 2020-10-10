@@ -57,11 +57,11 @@ Support is available via a [Tidelift Subscription](https://tidelift.com/subscrip
 ## Usage
 
 <!-- snippet: usage -->
-<a id='c629ba0e'></a>
+<a id='usage'></a>
 ```cs
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 ```
-<sup><a href='/src/Sample/Program.cs#L11-L13' title='Snippet source file'>snippet source</a> | <a href='#c629ba0e' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L11-L13' title='Snippet source file'>snippet source</a> | <a href='#usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
