@@ -42,7 +42,7 @@ class JsonMessageSerializer :
         {
             throw new Exception("NServiceBus.Json requires message types to be specified");
         }
-        
+
         var buffer = ((MemoryStream)stream).ToArray();
         if (messageTypes.Count == 1)
         {
@@ -57,7 +57,7 @@ class JsonMessageSerializer :
     object Deserialize(byte[] buffer, Type type)
     {
         var reader = new Utf8JsonReader(buffer, readerOptions);
-        return JsonSerializer.Deserialize(ref reader, type, serializerOptions);
+        return JsonSerializer.Deserialize(ref reader, type, serializerOptions)!;
     }
 
     static IEnumerable<Type> FindRootTypes(IEnumerable<Type> messageTypesToDeserialize)

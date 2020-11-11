@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\NServiceBus.Json\NServiceBus.Json.csproj" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.47" PrivateAssets="All" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.48" PrivateAssets="All" />
   </ItemGroup>
 </Project>
