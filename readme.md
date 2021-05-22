@@ -13,16 +13,6 @@ To change this file edit the source file and then run MarkdownSnippets.
 
 Add support for [NServiceBus](https://particular.net/NServiceBus) message serialization via [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json)
 
-<!-- toc -->
-## Contents
-
-  * [Community backed](#community-backed)
-    * [Sponsors](#sponsors)
-    * [Patrons](#patrons)
-  * [Support via TideLift](#support-via-tidelift)
-  * [Usage](#usage)
-  * [Security contact information](#security-contact-information)<!-- endToc -->
-
 <!--- StartOpenCollectiveBackers -->
 
 [Already a Patron? skip past this section](#endofbacking)
@@ -63,11 +53,6 @@ endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 ```
 <sup><a href='/src/Sample/Program.cs#L11-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
-
-
-## Security contact information
-
-To report a security vulnerability, use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
 
 
 ## Icon
