@@ -14,7 +14,7 @@ class JsonMessageSerializer :
         JsonSerializerOptions serializerOptions,
         JsonWriterOptions writerOptions,
         JsonReaderOptions readerOptions,
-        string contentType)
+        string? contentType)
     {
         this.serializerOptions = serializerOptions;
         this.writerOptions = writerOptions;
@@ -40,7 +40,7 @@ class JsonMessageSerializer :
     {
         if (messageTypes == null || !messageTypes.Any())
         {
-            throw new Exception("NServiceBus.Json requires message types to be specified");
+            throw new("NServiceBus.Json requires message types to be specified");
         }
 
         var buffer = ((MemoryStream)stream).ToArray();

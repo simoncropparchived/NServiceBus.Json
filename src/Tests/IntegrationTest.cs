@@ -23,7 +23,7 @@ public class IntegrationTest
 
         if (!resetEvent.WaitOne(TimeSpan.FromSeconds(10)))
         {
-            throw new Exception("No Set received.");
+            throw new("No Set received.");
         }
     }
 }
