@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 using NServiceBus;
 using NServiceBus.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
