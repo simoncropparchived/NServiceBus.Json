@@ -1,6 +1,5 @@
 ﻿using NServiceBus;
 using NServiceBus.Json;
-using Xunit;
 
 public class IntegrationTest
 {
