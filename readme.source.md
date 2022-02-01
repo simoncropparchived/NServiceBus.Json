@@ -1,6 +1,6 @@
 # <img src="/src/icon.png" height="30px"> NServiceBus.Json
 
-[![Build status](https://ci.appveyor.com/api/projects/status/5djip8pld58ykwpi/branch/master?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-Json)
+[![Build status](https://ci.appveyor.com/api/projects/status/5djip8pld58ykwpi/branch/main?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-Json)
 [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Json.svg)](https://www.nuget.org/packages/NServiceBus.Json/)
 
 
