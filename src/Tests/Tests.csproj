@@ -9,7 +9,7 @@
     <PackageReference Include="Verify.Xunit" Version="15.2.1" />
     <PackageReference Include="Verify.Xunit" Version="15.2.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="24.2.2" PrivateAssets="all" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="24.3.0" PrivateAssets="all" />
     <ProjectReference Include="..\NServiceBus.Json\NServiceBus.Json.csproj" />
     <PackageReference Include="ProjectDefaults" Version="1.0.68" PrivateAssets="all" />
   </ItemGroup>
