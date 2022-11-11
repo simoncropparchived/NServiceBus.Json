@@ -44,20 +44,14 @@ public static class SystemJsonConfigurationExtensions
         settings.Set(options);
     }
 
-    internal static JsonSerializerOptions GetOptions(this ReadOnlySettings settings)
-    {
-        return settings.GetOrDefault<JsonSerializerOptions>();
-    }
+    internal static JsonSerializerOptions GetOptions(this ReadOnlySettings settings) =>
+        settings.GetOrDefault<JsonSerializerOptions>();
 
-    internal static JsonReaderOptions GetReaderOptions(this ReadOnlySettings settings)
-    {
-        return settings.GetOrDefault<JsonReaderOptions>();
-    }
+    internal static JsonReaderOptions GetReaderOptions(this ReadOnlySettings settings) =>
+        settings.GetOrDefault<JsonReaderOptions>();
 
-    internal static JsonWriterOptions GetWriterOptions(this ReadOnlySettings settings)
-    {
-        return settings.GetOrDefault<JsonWriterOptions>();
-    }
+    internal static JsonWriterOptions GetWriterOptions(this ReadOnlySettings settings) =>
+        settings.GetOrDefault<JsonWriterOptions>();
 
     /// <summary>
     /// Configures string to use for <see cref="Headers.ContentType"/> headers.
@@ -75,8 +69,6 @@ public static class SystemJsonConfigurationExtensions
         settings.Set("NServiceBus.SystemJson.ContentTypeKey", contentTypeKey);
     }
 
-    internal static string GetContentTypeKey(this ReadOnlySettings settings)
-    {
-        return settings.GetOrDefault<string>("NServiceBus.SystemJson.ContentTypeKey");
-    }
+    internal static string GetContentTypeKey(this ReadOnlySettings settings) =>
+        settings.GetOrDefault<string>("NServiceBus.SystemJson.ContentTypeKey");
 }

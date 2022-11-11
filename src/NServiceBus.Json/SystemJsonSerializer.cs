@@ -13,9 +13,8 @@ public class SystemJsonSerializer :
     /// <summary>
     /// <see cref="SerializationDefinition.Configure"/>
     /// </summary>
-    public override Func<IMessageMapper, IMessageSerializer> Configure(ReadOnlySettings settings)
-    {
-        return _ =>
+    public override Func<IMessageMapper, IMessageSerializer> Configure(ReadOnlySettings settings) =>
+        _ =>
         {
             var options = settings.GetOptions();
             var readerOptions = settings.GetReaderOptions();
@@ -23,5 +22,4 @@ public class SystemJsonSerializer :
             var contentTypeKey = settings.GetContentTypeKey();
             return new JsonMessageSerializer(options, writerOptions, readerOptions, contentTypeKey);
         };
-    }
 }
