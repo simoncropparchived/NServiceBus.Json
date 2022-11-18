@@ -1,8 +1,8 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using NServiceBus.Configuration.AdvancedExtensibility;
+using NServiceBus.Json;
 using NServiceBus.Serialization;
 using NServiceBus.Settings;
-using NServiceBus.Json;
 
 namespace NServiceBus;
 
@@ -44,13 +44,13 @@ public static class SystemJsonConfigurationExtensions
         settings.Set(options);
     }
 
-    internal static JsonSerializerOptions GetOptions(this ReadOnlySettings settings) =>
+    internal static JsonSerializerOptions GetOptions(this IReadOnlySettings settings) =>
         settings.GetOrDefault<JsonSerializerOptions>();
 
-    internal static JsonReaderOptions GetReaderOptions(this ReadOnlySettings settings) =>
+    internal static JsonReaderOptions GetReaderOptions(this IReadOnlySettings settings) =>
         settings.GetOrDefault<JsonReaderOptions>();
 
-    internal static JsonWriterOptions GetWriterOptions(this ReadOnlySettings settings) =>
+    internal static JsonWriterOptions GetWriterOptions(this IReadOnlySettings settings) =>
         settings.GetOrDefault<JsonWriterOptions>();
 
     /// <summary>
@@ -69,6 +69,6 @@ public static class SystemJsonConfigurationExtensions
         settings.Set("NServiceBus.SystemJson.ContentTypeKey", contentTypeKey);
     }
 
-    internal static string GetContentTypeKey(this ReadOnlySettings settings) =>
+    internal static string GetContentTypeKey(this IReadOnlySettings settings) =>
         settings.GetOrDefault<string>("NServiceBus.SystemJson.ContentTypeKey");
 }

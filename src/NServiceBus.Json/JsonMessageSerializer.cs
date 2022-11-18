@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using NServiceBus;
+using System.Text.Json;
 using NServiceBus.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -28,31 +27,30 @@ class JsonMessageSerializer :
 
     public void Serialize(object message, Stream stream)
     {
-        using var writer = new Utf8JsonWriter(stream,writerOptions);
+        using var writer = new Utf8JsonWriter(stream, writerOptions);
         JsonSerializer.Serialize(writer, message, serializerOptions);
     }
 
-    public object[] Deserialize(Stream stream, IList<Type> messageTypes)
+    public object[] Deserialize(ReadOnlyMemory<byte> body, IList<Type>? messageTypes = null)
     {
         if (messageTypes == null || !messageTypes.Any())
         {
             throw new("NServiceBus.Json requires message types to be specified");
         }
 
-        var buffer = ((MemoryStream)stream).ToArray();
         if (messageTypes.Count == 1)
         {
-            return new[] {Deserialize(buffer, messageTypes[0])};
+            return new[] { Deserialize(body, messageTypes[0]) };
         }
 
         var rootTypes = FindRootTypes(messageTypes);
-        return rootTypes.Select(rootType => Deserialize(buffer, rootType))
+        return rootTypes.Select(rootType => Deserialize(body, rootType))
             .ToArray();
     }
 
-    object Deserialize(byte[] buffer, Type type)
+    object Deserialize(ReadOnlyMemory<byte> body, Type type)
     {
-        var reader = new Utf8JsonReader(buffer, readerOptions);
+        var reader = new Utf8JsonReader(body.Span, readerOptions);
         return JsonSerializer.Deserialize(ref reader, type, serializerOptions)!;
     }
 
