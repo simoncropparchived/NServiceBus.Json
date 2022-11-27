@@ -1,4 +1,4 @@
-﻿using NServiceBus.MessageInterfaces;
+using NServiceBus.MessageInterfaces;
 using NServiceBus.Serialization;
 using NServiceBus.Settings;
 
@@ -13,7 +13,7 @@ public class SystemJsonSerializer :
     /// <summary>
     /// <see cref="SerializationDefinition.Configure"/>
     /// </summary>
-    public override Func<IMessageMapper, IMessageSerializer> Configure(ReadOnlySettings settings) =>
+    public override Func<IMessageMapper, IMessageSerializer> Configure(IReadOnlySettings settings) =>
         _ =>
         {
             var options = settings.GetOptions();

@@ -1,4 +1,5 @@
-﻿using NServiceBus;
+using Microsoft.Extensions.DependencyInjection;
+using NServiceBus;
 using NServiceBus.Json;
 
 public class IntegrationTest
@@ -12,10 +13,10 @@ public class IntegrationTest
         configuration.UseSerialization<SystemJsonSerializer>();
         configuration.PurgeOnStartup(true);
         using var resetEvent = new ManualResetEvent(false);
-        configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
+        configuration.RegisterComponents(components => components.AddSingleton(resetEvent));
 
         var endpoint = await Endpoint.Start(configuration);
-        await endpoint.SendLocal(new MyMessage {Property = "Value"});
+        await endpoint.SendLocal(new MyMessage { Property = "Value" });
 
         if (!resetEvent.WaitOne(TimeSpan.FromSeconds(10)))
         {
