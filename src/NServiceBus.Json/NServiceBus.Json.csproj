@@ -4,6 +4,7 @@
     <TargetFrameworks>net472;net6.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
+    <Using Remove="System.Net.Http" />
     <PackageReference Include="NServiceBus" Version="8.0.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.0" />
     <PackageReference Include="ProjectDefaults" Version="1.0.82" PrivateAssets="all" />
