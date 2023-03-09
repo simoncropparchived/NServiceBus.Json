@@ -6,6 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\NServiceBus.Json\NServiceBus.Json.csproj" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.88" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.89" PrivateAssets="all" />
   </ItemGroup>
 </Project>
