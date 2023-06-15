@@ -1,3 +1,5 @@
+#pragma warning disable CS0618 // Type or member is obsolete
+
 using Microsoft.Extensions.DependencyInjection;
 using NServiceBus;
 using NServiceBus.Json;

@@ -1,4 +1,6 @@
-﻿using NServiceBus;
+#pragma warning disable CS0618 // Type or member is obsolete
+
+using NServiceBus;
 using NServiceBus.Json;
 
 class Program

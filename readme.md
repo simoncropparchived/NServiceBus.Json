@@ -7,6 +7,8 @@ To change this file edit the source file and then run MarkdownSnippets.
 
 # <img src="/src/icon.png" height="30px"> NServiceBus.Json
 
+> **NOTE**: Message serialization using System.Text.Json has been merged into NServiceBus version 8.1.0 and above. This package will not be updated. See the [NServiceBus upgrade guide](https://docs.particular.net/nservicebus/upgrades/community-system-json) for instructions on how to upgrade to the built-in serializer.
+
 [![Build status](https://ci.appveyor.com/api/projects/status/5djip8pld58ykwpi/branch/main?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-Json)
 [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Json.svg)](https://www.nuget.org/packages/NServiceBus.Json/)
 
@@ -46,7 +48,7 @@ Thanks to all the backing developers. Support this project by [becoming a patron
 ```cs
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
 ```
-<sup><a href='/src/Sample/Program.cs#L9-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L11-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
