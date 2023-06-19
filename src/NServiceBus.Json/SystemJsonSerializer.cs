@@ -7,6 +7,7 @@ namespace NServiceBus.Json;
 /// <summary>
 /// Defines the capabilities of the System.Text.Json serializer
 /// </summary>
+[Obsolete("The NServiceBus.Json package has been incorporated into NServiceBus version 8.1.0. This package will not be updated. See https://docs.particular.net/nservicebus/upgrades/community-system-json to upgrade.", false)]
 public class SystemJsonSerializer :
     SerializationDefinition
 {
