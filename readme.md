@@ -46,9 +46,9 @@ Thanks to all the backing developers. Support this project by [becoming a patron
 <!-- snippet: usage -->
 <a id='snippet-usage'></a>
 ```cs
-endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+endpointConfiguration.UseSerialization<NServiceBus.Json.SystemJsonSerializer>();
 ```
-<sup><a href='/src/Sample/Program.cs#L11-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L10-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
