@@ -2,7 +2,6 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using NServiceBus;
-using NServiceBus.Json;
 
 public class IntegrationTest
 {
@@ -12,7 +11,7 @@ public class IntegrationTest
         var configuration = new EndpointConfiguration("Test");
         configuration.UseTransport<LearningTransport>();
         configuration.UsePersistence<LearningPersistence>();
-        configuration.UseSerialization<SystemJsonSerializer>();
+        configuration.UseSerialization<NServiceBus.Json.SystemJsonSerializer>();
         configuration.PurgeOnStartup(true);
         using var resetEvent = new ManualResetEvent(false);
         configuration.RegisterComponents(components => components.AddSingleton(resetEvent));

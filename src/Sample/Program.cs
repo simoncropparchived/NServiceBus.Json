@@ -1,7 +1,6 @@
 #pragma warning disable CS0618 // Type or member is obsolete
 
 using NServiceBus;
-using NServiceBus.Json;
 
 class Program
 {
@@ -9,7 +8,7 @@ class Program
     {
         var endpointConfiguration = new EndpointConfiguration("JsonSerializerSample");
         #region usage
-        endpointConfiguration.UseSerialization<SystemJsonSerializer>();
+        endpointConfiguration.UseSerialization<NServiceBus.Json.SystemJsonSerializer>();
         #endregion
         endpointConfiguration.UseTransport<LearningTransport>();
         var endpoint = await Endpoint.Start(endpointConfiguration);
